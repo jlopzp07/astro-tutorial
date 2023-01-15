@@ -1,5 +1,5 @@
 ---
-import Navigation from "../components/navigation.astro";
+import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
 const pageTitle = "Home Page";
 ---
@@ -13,9 +13,12 @@ const pageTitle = "Home Page";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<Navigation/>
+		<Header/>
 		<h1>{pageTitle}</h1>
 		<p>This is a paragraph test in Astro</p>
 		<Footer/>
+		<script>
+			import '../scripts/menu.js'
+		  </script>
 	</body>
 </html>
