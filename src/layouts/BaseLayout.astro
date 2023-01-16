@@ -1,0 +1,32 @@
+---
+// Los layouts son usados cuando se tienen elementos HTML comunes que se repiten en todas las páginas,
+// por lo que se pueden agrupar en un solo layout y ser llamado en las diferentes páginas
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+import "../styles/global.css";
+// Este es un props, se define la variable que sirve para que dentro de la página, se pueda ingresar este contenido variable.
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <!-- Este es un componente -->
+    <Header />
+    <!-- Así se ingresa una variable (este page title va a cambiar) -->
+    <h1>{pageTitle}</h1>
+    <!-- En este slot es donde ingreso el contenido custom de la página donde esté el layout -->
+    <slot />
+    <!-- Este es otro componente -->
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>
