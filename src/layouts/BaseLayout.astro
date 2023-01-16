@@ -6,6 +6,10 @@ import Footer from "../components/footer.astro";
 import "../styles/global.css";
 // Este es un props, se define la variable que sirve para que dentro de la página, se pueda ingresar este contenido variable.
 const { pageTitle } = Astro.props;
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -14,6 +18,18 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
+      h1 {
+          color: purple;
+          font-size: 4rem;
+      }
+  
+      .skill {
+          color: var(--skillColor);
+          font-weight: var(--fontWeight);
+          text-transform: var(--textCase);
+      }
+  </style>
     <title>{pageTitle}</title>
   </head>
   <body>
